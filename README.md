@@ -1,2 +1,2 @@
 # notes
-Here are some notes from my study
+个人学习笔记
