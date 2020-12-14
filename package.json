@@ -24,5 +24,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-vue": "^7.1.0",
     "husky": "^4.3.0"
+  },
+  "dependencies": {
+    "promises-aplus-tests": "^2.1.2"
   }
 }

@@ -3,9 +3,9 @@
  * @Version: 0.0.1
  * @Autor: DivinerWJ
  * @Date: 2020-12-04 03:08:04
- * @LastEditors: DivinerWJ
- * @LastEditTime: 2020-12-04 03:15:02
- * @FilePath: \tb1212\.eslintrc.js
+ * @LastEditors: wangjie59
+ * @LastEditTime: 2020-12-15 03:12:59
+ * @FilePath: /weixin/Users/wangjie/Documents/study/github/notes/.eslintrc.js
  */
 
 module.exports = {
@@ -173,7 +173,7 @@ module.exports = {
       'avoidEscape': true, // 允许字符串使用单引号或双引号，只要字符串中包含了一个其它引号，否则需要转义
       'allowTemplateLiterals': true // 允许字符串使用反勾号
     }], // 强制使用一致的反勾号、双引号或单引号
-    'semi': [2, 'never'], // 末尾不用出现分号
+    'semi': [2, 'always'], // 末尾不用出现分号
     'semi-spacing': [2, {
       'before': false, // 禁止分号之前有空格
       'after': true // 强制分号之后有空格
@@ -203,4 +203,4 @@ module.exports = {
     }], // 强制在花括号中使用一致的空格
     'array-bracket-spacing': [2, 'never'] // 强制数组方括号中使用一致的空格
   }
-}
+};

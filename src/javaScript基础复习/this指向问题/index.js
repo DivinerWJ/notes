@@ -4,7 +4,7 @@
  * @Autor: DivinerWJ
  * @Date: 2020-12-13 15:55:55
  * @LastEditors: wangjie59
- * @LastEditTime: 2020-12-14 19:18:34
+ * @LastEditTime: 2020-12-15 01:06:26
  * @FilePath: /weixin/Users/wangjie/Documents/study/github/notes/src/javaScript基础复习/this指向问题/index.js
  */
 
