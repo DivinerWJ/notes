@@ -2,7 +2,7 @@
  * @Author: wangjie59
  * @Date: 2020-12-15 00:47:12
  * @LastEditors: wangjie59
- * @LastEditTime: 2020-12-15 03:25:47
+ * @LastEditTime: 2020-12-15 03:39:56
  * @Description: 实现promise
  * @FilePath: /weixin/Users/wangjie/Documents/study/github/notes/src/javaScript基础复习/promise/promise.js
  */
@@ -86,13 +86,15 @@ class Promise {
         });
       }
       if (this.state === Promise.REJECTED) {
-        try {
-          const x = onRejected(this.reason);
-          // resolve(x);
-          Promise.resolvePromise(promise2, x, resolve, reject);
-        } catch (e) {
-          reject(e);
-        }
+        setTimeout(() => {
+          try {
+            const x = onRejected(this.reason);
+            // resolve(x);
+            Promise.resolvePromise(promise2, x, resolve, reject);
+          } catch (e) {
+            reject(e);
+          }
+        });
       }
 
       if (this.state === Promise.PENDING) {
@@ -191,3 +193,43 @@ Promise.defer = Promise.deferred = function () {
 // npm install promises-aplus-tests 用来测试自己的promise 符不符合promisesA+规范
 
 module.exports = Promise;
+
+// 源码: https://github.com/dream2023/blog/tree/master/promise
+// https://github.com/dream2023/blog/blob/master/2%E3%80%81promise%E5%8E%9F%E7%90%86/promise.js
+
+// es6 知识: http://es6.ruanyifeng.com
+
+// this 问题: https://juejin.im/post/59bfe84351882531b730bac2
+
+// Promise 基础教学: https://www.imooc.com/learn/949
+
+// Promise/A+规范原文: https://promisesaplus.com/
+
+// Promise/A+规范译文: http://www.ituring.com.cn/article/66566
+
+// 参考文章 BAT 前端经典面试问题：史上最最最详细的手写 Promise 教程: https://juejin.im/post/5b2f02cd5188252b937548ab
+
+// 参考文章 手写实现满足 Promise/A+ 规范的 Promise: https://www.jianshu.com/p/8d5c3a9e6181
+
+// vscode 编辑器: https://code.visualstudio.com/
+
+// vscode 代码运行插件 code-runner: https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner
+
+// anker_6
+// 大佬，除了setTimeout实现异步，有没有好的方法实现微任务
+
+// 2020-03-02 21:44回复
+
+// CARPENTERy回复 @小超dream2023  :希望后续能有介绍微任务的教程呀[呲牙]
+// 2020-08-11 20:27回复
+
+// 小超dream2023queueMicrotask(() => {
+//   /* 微任务中将运行的代码 */
+// });
+
+// 具体请看MDN：https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_DOM_API/Microtask_guide
+// 2020-03-19 22:05回复
+
+// 徐嵩建议可以去看一下vue源码 nextTIck的实现
+
+// 整理成blog：https://blog.csdn.net/qq_40511157/article/details/109906048
