@@ -30,6 +30,7 @@ fn1(); // window
 // 3、在构造函数中，指向构造函数的实例化对象
 function Person(name) {
   this.name = name;
+  console.log(this);
 }
 
 let p = new Person('李四'); // p
@@ -112,60 +113,60 @@ obj6.say.call(obj7); // window
 obj6.say.apply(obj7); // window
 obj6.say.bind(obj7)(); // window
 
-console.log('========================');
+// console.log('========================');
 
-let name = 'window';
-let obj1 = {
-  name: '1',
-  fn1: function () {
-    console.log(this.name);
+// let name = 'window';
+// let obj1 = {
+//   name: '1',
+//   fn1: function () {
+//     console.log(this.name);
     
-  },
-  fn2: () => console.log(this.name),
-  fn3: function () {
-    return function () {
-      console.log(this.name);
+//   },
+//   fn2: () => console.log(this.name),
+//   fn3: function () {
+//     return function () {
+//       console.log(this.name);
       
-    }
-  },
-  fn4: function () {
-    return () => console.log(this.name);
-  }
-}
+//     }
+//   },
+//   fn4: function () {
+//     return () => console.log(this.name);
+//   }
+// }
 
-const obj2 = {
-  name: '2'
-};
+// const obj2 = {
+//   name: '2'
+// };
 
-const fn5 = obj1.fn4;
+// const fn5 = obj1.fn4;
 
-const fn6 = obj1.fn4();
+// const fn6 = obj1.fn4();
 
-obj1.fn1(); // 1 对象调用 this 指向 obj1
-obj1.fn1.call(obj2); // 2 对象调用 call将this指向obj2
+// obj1.fn1(); // 1 对象调用 this 指向 obj1
+// obj1.fn1.call(obj2); // 2 对象调用 call将this指向obj2
 
-obj1.fn2(); // window 去父作用域查找
-obj1.fn2.call(obj2); // window 去父作用域查找
+// obj1.fn2(); // window 去父作用域查找
+// obj1.fn2.call(obj2); // window 去父作用域查找
 
-obj1.fn3()(); // window
-obj1.fn3().call(obj2); // 2
-obj1.fn3.call(obj2)(); // window
+// obj1.fn3()(); // window
+// obj1.fn3().call(obj2); // 2
+// obj1.fn3.call(obj2)(); // window
 
-obj1.fn4()(); // 1
-obj1.fn4().call(obj2); // 1
-obj1.fn4.call(obj2)(); // 2
+// obj1.fn4()(); // 1
+// obj1.fn4().call(obj2); // 1
+// obj1.fn4.call(obj2)(); // 2
 
-fn5()(); // window
-fn6(); // 1
+// fn5()(); // window
+// fn6(); // 1
 
-class Foo {
-  constructor() {
-    getName = function () { console.log(1); };
-    return this;
-  }
-  getName() { console.log(3); }
-  static getName() { console.log(2); }
-}
+// class Foo {
+//   constructor() {
+//     getName = function () { console.log(1); };
+//     return this;
+//   }
+//   getName() { console.log(3); }
+//   static getName() { console.log(2); }
+// }
 
 console.log('========================');
 
