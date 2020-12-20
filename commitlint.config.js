@@ -4,7 +4,7 @@
  * @Autor: DivinerWJ
  * @Date: 2020-12-04 02:41:49
  * @LastEditors: DivinerWJ
- * @LastEditTime: 2020-12-13 21:15:35
+ * @LastEditTime: 2020-12-21 00:30:13
  * @FilePath: \tb1212c:\Users\Wangj\Documents\workspace\javaScript\Test\notes\commitlint.config.js
  */
 // module.exports = {
@@ -37,7 +37,7 @@ module.exports = {
     // 'subject-full-stop': [0, 'never'],
     // 'subject-case': [0, 'never']
   }
-}
+};
 //   build ：主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交
 //   ci ：主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交
 //   docs ：文档更新

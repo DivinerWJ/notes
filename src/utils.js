@@ -4,7 +4,7 @@
  * @Autor: DivinerWJ
  * @Date: 2020-12-21 00:01:33
  * @LastEditors: DivinerWJ
- * @LastEditTime: 2020-12-21 00:22:07
+ * @LastEditTime: 2020-12-21 00:30:38
  * @FilePath: \tb1212c:\Users\Wangj\Documents\workspace\javaScript\Test\notes\src\utils.js
  */
 
@@ -15,7 +15,7 @@
  * @return {String} finaUrl
  * @author: DivinerWJ
  */
-const getUrl = (url, params) => {
+export const getUrl = (url, params) => {
   if (!params) {
     return url;
   }
