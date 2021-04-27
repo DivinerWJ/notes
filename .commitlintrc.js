@@ -3,39 +3,34 @@
  * @Version: 0.0.1
  * @Autor: DivinerWJ
  * @Date: 2020-12-04 02:41:49
- * @LastEditors: DivinerWJ
- * @LastEditTime: 2020-12-21 00:30:13
- * @FilePath: \tb1212c:\Users\Wangj\Documents\workspace\javaScript\Test\notes\commitlint.config.js
+ * @LastEditors: wangjie59
+ * @LastEditTime: 2021-04-27 15:39:29
+ * @FilePath: /weixin/Users/wangjie/Documents/study/github/notes/.commitlintrc.js
  */
-// module.exports = {
-//   extends: ['@commitlint/config-conventional'],
-//   rules: {
-//     'type-enum': [2, 'always', [
-//       'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore', 'revert'
-//     ]],
-//     'subject-full-stop': [0, 'never'],
-//     'subject-case': [0, 'never']
-//   }
-// };
 
 module.exports = {
-  extends: ['@commitlint/config-conventional'],
+  extends: [
+    '@commitlint/config-conventional',
+    'cz'
+  ],
   rules: {
     'type-enum': [2, 'always', [
-      'build',
-      'ci',
-      'chore',
-      'docs',
       'feat',
+      'update',
       'fix',
-      'perf',
-      'refactor',
-      'revert',
+      'docs',
       'style',
-      'test'
-    ]]
-    // 'subject-full-stop': [0, 'never'],
-    // 'subject-case': [0, 'never']
+      'refactor',
+      'perf',
+      'test',
+      'build',
+      'cli',
+      // 'WIP',
+      'chore',
+      'revert',
+    ]],
+    'subject-full-stop': [0, 'never'],
+    'subject-case': [0, 'never']
   }
 };
 //   build ：主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交
