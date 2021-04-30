@@ -4,15 +4,19 @@
  * @Autor: DivinerWJ
  * @Date: 2020-12-04 02:41:49
  * @LastEditors: wangjie59
- * @LastEditTime: 2021-04-27 15:39:29
+ * @LastEditTime: 2021-04-30 17:01:08
  * @FilePath: /weixin/Users/wangjie/Documents/study/github/notes/.commitlintrc.js
  */
-
+'user strict'
 module.exports = {
   extends: [
     '@commitlint/config-conventional',
     'cz'
   ],
+  // plugins: [
+  //   'with-jira-issue'
+  // ],
+  // parserPreset: 'commitlint-with-demand',
   rules: {
     'type-enum': [2, 'always', [
       'feat',
@@ -29,6 +33,7 @@ module.exports = {
       'chore',
       'revert',
     ]],
+    // 'with-jira-issue': [2, 'always'],
     'subject-full-stop': [0, 'never'],
     'subject-case': [0, 'never']
   }

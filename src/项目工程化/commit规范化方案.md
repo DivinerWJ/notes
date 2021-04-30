@@ -2,7 +2,7 @@
  * @Author: wangjie59
  * @Date: 2021-04-27 12:50:04
  * @LastEditors: wangjie59
- * @LastEditTime: 2021-04-27 15:10:36
+ * @LastEditTime: 2021-04-30 15:57:46
  * @Description: commit规范化方案
  * @FilePath: /weixin/Users/wangjie/Documents/study/github/notes/src/项目工程化/commit规范化方案.md
 -->
@@ -29,6 +29,7 @@ commit的次数以及commit携带的message多少并不会影响所编写代码�
 - 关联commit和代码，如果是开源项目还可以关联issue
 
 ## 规范
+
 社区中的commit message规范有很多，我们选择[Angular 规范](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0)，因为该规范配套工具齐全，使用最为广泛。
 
 每次提交，message都应该包含三个部分：Header、Body、Footer。格式如下：
@@ -76,8 +77,13 @@ commit的次数以及commit携带的message多少并不会影响所编写代码�
 
 安装
 
-```
+- 项目级安装
+
+```shell
+# 项目级
 npm i -D commitizen cz-conventional-changelog
+# 全局
+npm i -g commitizen
 ```
 
 ```JSON
@@ -102,8 +108,14 @@ npm i -D commitizen cz-conventional-changelog
 
 或者直接键入命令：
 
-```
+```shell
 echo '{"path":"cz-conventional-changelog"}' > ~/.czrc
+```
+
+还可以
+
+```shell
+commitizen init cz-conventional-changelog --save --save-exact
 ```
 
 而且如果是全局安装则直接在项目根目录使用`git cz`命令就可以看到命令行弹出内容；如果是项目级安装则需要在scripts中新增一条命令，交于node进行操作：
@@ -121,7 +133,7 @@ echo '{"path":"cz-conventional-changelog"}' > ~/.czrc
 
 ## 二、commitlint校验
 
-```
+```shell
 npm i -D @commitlint/config-conventional @commitlint/cli
 ```
 
@@ -185,7 +197,7 @@ husky继承了git提供的`hook`来在不同的时期触发钩子，从而执行
 
 如果想对提示文案做个性化设置
 
-```
+```shell
 npm i -D commitlint-config-cz cz-customizable
 ```
 
@@ -287,7 +299,7 @@ module.exports = {
 
 ## 五、生成开发日志`standard-version`
 
-```
+```shell
 npm i -D standard-version
 ```
 
