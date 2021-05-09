@@ -1,4 +1,7 @@
 {
+  "name": "my_note",
+  "version": "1.1.0",
+  "description": "",
   "scripts": {
     "commit": "git-cz",
     "release": "standard-version",
@@ -7,7 +10,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-customizable"
+      "path": "./node_modules/@undefined0_0/cz-customizable"
     }
   },
   "husky": {
@@ -25,16 +28,13 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^9.0.0",
-    "@commitlint/config-angular": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@undefined0_0/cz-customizable": "^1.0.0",
     "babel-eslint": "^10.1.0",
-    "commitizen": "^4.2.3",
+    "commitizen": "^4.2.4",
     "commitlint-config-cz": "^0.13.2",
     "commitlint-plugin-with-jira-issue": "^1.0.1",
     "commitlint-with-demand": "^1.0.1",
-    "conventional-changelog-lint-config-cz": "^0.3.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "cz-customizable": "^6.3.0",
     "eslint": "^7.14.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^4.0.2",

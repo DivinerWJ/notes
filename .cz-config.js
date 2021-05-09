@@ -1,14 +1,19 @@
 /*
  * @Author: wangjie59
  * @Date: 2021-04-26 15:58:40
- * @LastEditors: wangjie59
- * @LastEditTime: 2021-04-27 13:30:14
+ * @LastEditors: DivinerWJ
+ * @LastEditTime: 2021-05-09 23:11:48
  * @Description: cz-config.js
- * @FilePath: /weixin/Users/wangjie/Documents/study/github/notes/.cz-config.js
+ * @FilePath: \tb1212c:\Users\Wangj\Documents\workspace\javaScript\Test\notes\.cz-config.js
  */
 
 'use strict';
+
+const { JIRA_PROJECT }= require('./.demand.js');
+
 module.exports = {
+  jiraMode: false,
+  jiraPrefix: JIRA_PROJECT,
   types: [{
       value: 'feat',
       name: '特性:    新增一个功能'
@@ -88,6 +93,7 @@ module.exports = {
   */
   // override the messages, defaults are as follows
   messages: {
+    jirasBody: `输入jira编号 (例: "0000", 将会处理为 "${JIRA_PROJECT || 'NULL'}-0000 #comment".): (可选，若空则为ignore)\n`,
     type: '选择一种你的提交类型:',
     scope: '选择一个scope (可选):',
     // used if allowCustomScopes is true
