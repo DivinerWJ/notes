@@ -2,7 +2,7 @@
  * @Author: wangjie59
  * @Date: 2021-04-30 14:35:39
  * @LastEditors: wangjie59
- * @LastEditTime: 2021-04-30 14:52:25
+ * @LastEditTime: 2021-05-06 10:32:28
  * @Description: js代码规范
  * @FilePath: /weixin/Users/wangjie/Documents/study/github/notes/src/项目工程化/代码规范_js.md
 -->
@@ -51,3 +51,7 @@ eslint * # (--fix 自动修复)
 ```
 
 然后就可以校验`Vue`文件了
+
+### 阿里规范合集
+
+[仓库](https://github.com/alibaba/f2e-spec)

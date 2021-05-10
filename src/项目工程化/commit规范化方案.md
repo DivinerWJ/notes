@@ -2,7 +2,7 @@
  * @Author: wangjie59
  * @Date: 2021-04-27 12:50:04
  * @LastEditors: wangjie59
- * @LastEditTime: 2021-04-30 15:57:46
+ * @LastEditTime: 2021-05-07 14:18:44
  * @Description: commit规范化方案
  * @FilePath: /weixin/Users/wangjie/Documents/study/github/notes/src/项目工程化/commit规范化方案.md
 -->
@@ -181,6 +181,14 @@ module.exports = {
 
 husky继承了git提供的`hook`来在不同的时期触发钩子，从而执行不同的操作，阻止`commit`、`push`等等
 
+1. husky注册在git `pre-commit`的钩子调起 `lint-staged`
+2. `lint-staged` 取得所有被提交的文件依次执行写好的任务（例如`ESLint`）
+3. 如果有错误（没通过`ESlint`检查）则停止任务，等待下次`commit`，同时打印错误信息
+
+```shell
+npm i -D husky lint-staged
+```
+
 ```JSON
 // package.json
 "husky": {
@@ -192,6 +200,40 @@ husky继承了git提供的`hook`来在不同的时期触发钩子，从而执行
 ```
 
 这样，当我们在当前项目中执行`git commit -m 'commit message'`时将触发`commit-msg`事件钩子，并通知`husky`，然后执行`commitlint -E HUSKY_GIT_PARAMS`命令，`commitlint`读取`.commitlintrc.js`配置规则并对提交的`commit message`这串文字进行校验，若校验不通过，则在终端输出错误，commit终止。
+
+### 只校验本次修改的文件
+
+```JSON
+// package.json
+"husky": {
+  "hooks": {
+    "pre-commit": "lint-staged"
+  }
+},
+"lint-staged": {
+  "*.{js,vue}": [
+    "vue-cli-service lint",
+    // ...
+    "git add",
+  ]
+}
+```
+
+### yorkie
+
+在cli安装之后，@vue/cli-service 也会安装 yorkie，它会让你在 package.json 的 gitHooks 字段中方便地指定 Git hook：
+
+```shell
+npm i -D lint-staged yorkie
+```
+
+```JSON
+// package.json
+"gitHooks": {
+  "pre-commit": "lint-staged",
+  "commit-msg": "commitlint -E GIT_PARAMS" // commitlint检测
+},
+```
 
 ## 四、自定义提示文案
 
@@ -294,6 +336,35 @@ module.exports = {
   // breaklineChar: '|', // It is supported for fields body and footer.
   // footerPrefix : 'ISSUES CLOSED:'
   // askForBreakingChangeFirst : true, // default is false
+};
+```
+
+## (补充)项目jira校验
+
+```shell
+npm i -D commitlint-plugin-with-jira-issue commitlint-with-demand
+```
+
+```JavaScript
+// .commitlintrc.js
+  // ...
+  plugins: [
+    'with-jira-issue'
+  ],
+  parserPreset: 'commitlint-with-demand',
+  rules: {
+    // ...
+    'with-jira-issue': [2, 'always'],
+    // ...
+  }
+```
+
+```JavaScript
+// .demand.js
+// Your JIRA number
+const JIRA_PROJECT = '';
+module.exports = {
+  JIRA_PROJECT
 };
 ```
 
