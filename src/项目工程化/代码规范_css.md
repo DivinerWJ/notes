@@ -2,7 +2,7 @@
  * @Author: wangjie59
  * @Date: 2021-04-30 14:52:46
  * @LastEditors: wangjie59
- * @LastEditTime: 2021-04-30 16:41:38
+ * @LastEditTime: 2021-05-07 14:16:11
  * @Description: 
  * @FilePath: /weixin/Users/wangjie/Documents/study/github/notes/src/项目工程化/代码规范_css.md
 -->
@@ -17,7 +17,8 @@
 ## 项目中安装stylelint
 
 ```shell
-npm i -d stylelint stylelint-config-recess-order stylelint-config-standard stylelint-order stylelint-scss
+# stylelint-wxss
+npm i -d stylelint stylelint-config-standard stylelint-scss stylelint-order stylelint-config-recess-order
 ```
 
 - stylelint-scss
@@ -77,4 +78,24 @@ npm i -d stylelint stylelint-config-recess-order stylelint-config-standard style
     "stylelint"
   ]
 }
+```
+
+## [附]wxss校验
+
+```shell
+npm i -D stylelint-wxss
+```
+
+```JavaScript
+// .stylelintrc.js
+  plugins: ['stylelint-wxss'],
+  rules: {
+    'wxss/selector-disallowed': ['tag'], {
+      // exclude: {
+      //   tag: ['page']
+      // },
+      // // skip lint files under component directory
+      // glob: ['**', '!**/component/**']
+    }
+  }
 ```
